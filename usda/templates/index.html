@@ -1,0 +1,42 @@
+
+<form class="input-group" action="/search" method="post">
+    <input class="form-control" id="content" name="content" type="text" value="">
+    <span class="input-group-btn">
+         <button class="btn btn-primary" type="submit">Search</button>
+    </span>
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>No.</th>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for key, dict_item in usda_list.items() %}
+    {% for i,j in dict_item %}
+        <tr class="info">
+            <td>
+                <input type="checkbox" name="myTextEditBox" value="checked" />
+            </td>
+            {% if key == "id" %}
+            <td>
+                {{i}}
+            </td>
+            {% endif %}
+
+            {% if key == "name" %}
+            <td>
+                {{j}}
+            </td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    {% endfor %}
+    </tbody>
+
+</table>
+
